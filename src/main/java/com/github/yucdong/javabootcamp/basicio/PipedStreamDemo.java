@@ -9,27 +9,29 @@ public class PipedStreamDemo {
         final PipedOutputStream output = new PipedOutputStream();
         final PipedInputStream input = new PipedInputStream(output);
 
+        // Pipes are communication channels between threads within
+        // the same JVM, this pipe is different from unix pipes
         Thread threadWrite = new Thread(new Runnable() {
             public void run() {
-                try {
-                    output.write("Hello World".getBytes());
-                } catch (IOException e) {
+            try {
+                output.write("Hello World".getBytes());
+            } catch (IOException e) {
 
-                }
+            }
             }
         });
 
         Thread threadRead = new Thread(new Runnable() {
             public void run() {
-                try {
-                    int data = input.read();
-                    while (data != -1) {
-                        System.out.println((char)data);
-                        data = input.read();
-                    }
-                } catch (IOException e) {
-
+            try {
+                int data = input.read();
+                while (data != -1) {
+                    System.out.println((char)data);
+                    data = input.read();
                 }
+            } catch (IOException e) {
+
+            }
             }
         });
 
