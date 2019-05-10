@@ -7,7 +7,7 @@ public class BasicExample {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            String url      = "jdbc:mysql://52.246.179.108:3306/yucdongdemo";   //database specific url.
+            String url      = "jdbc:mysql://13.78.98.63:3306/yucdongdemo";   //database specific url.
             String user     = "yucdong";
             String password = "password";
 
